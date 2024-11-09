@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Inventory Report</h1>
+
+    {% if 'stock_levels' in graphs %}
+        <h2>Stock Levels by Product</h2>
+        <img src="data:image/png;base64,{{ graphs['stock_levels'] }}" alt="Stock Levels">
+    {% else %}
+        <p>Stock levels data is not available.</p>
+    {% endif %}
+
+    {% if 'sales_trend' in graphs %}
+        <h2>Sales Trend Over Time</h2>
+        <img src="data:image/png;base64,{{ graphs['sales_trend'] }}" alt="Sales Trend">
+    {% else %}
+        <p>Sales trend data is not available.</p>
+    {% endif %}
+
+    {% if 'order_status' in graphs %}
+        <h2>Order Status Distribution</h2>
+        <img src="data:image/png;base64,{{ graphs['order_status'] }}" alt="Order Status Distribution">
+    {% else %}
+        <p>Order status data is not available.</p>
+    {% endif %}
+
+</body>
+</html>

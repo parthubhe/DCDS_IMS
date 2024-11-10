@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Create New Order</h1>
+
+<form action="/create_order" method="POST">
+    <label for="customer_id">Customer ID:</label>
+    <input type="text" id="customer_id" name="customer_id" required><br>
+
+    <label for="status">Order Status:</label>
+    <input type="text" id="status" name="status" required><br>
+
+    <label for="total_amount">Total Amount:</label>
+    <input type="text" id="total_amount" name="total_amount" required><br>
+
+    <button type="submit">Create Order</button>
+</form>
+
+
+</body>
+</html>
